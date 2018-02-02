@@ -1,4 +1,4 @@
-class ToDooLeast {
+export class ToDooLeast {
     constructor() {
         this.nextId = 0;
         this.todos = {};

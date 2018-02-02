@@ -1,14 +1,10 @@
-class ToDoo {
-    static get DONE() {
-        return 'done';
-    }
-    static get NOT_DONE() {
-        return 'not-done';
-    }
+export const DONE = 'done';
+export const NOT_DONE = 'not-done';
 
-    constructor(message, state = ToDoo.NOT_DONE) {
+export class ToDoo {
+    constructor(message, state = NOT_DONE) {
         this.message = message;
         this.state = state;
         this.id = null;
-    }    
+    }
 }

@@ -1,4 +1,6 @@
-class ToDooComponent {
+import { ToDoo, DONE } from './ToDoo.js';
+
+export class ToDooComponent {
     constructor(selector, appState) {
         this.element = document.querySelector(selector);
         this.state = appState;
@@ -32,7 +34,7 @@ class ToDooComponent {
 
         for (const btn of checkButtons) {
             btn.addEventListener('click', function(event){
-                that.state.todos[this.dataset.id].state = ToDoo.DONE;
+                that.state.todos[this.dataset.id].state = DONE;
                 that.draw();
             })
         }
@@ -47,7 +49,6 @@ class ToDooComponent {
         let htmlOutput = '';
         const t = this.state.todos;
         for (const id in this.state.todos) {
-            console.log(this.state.todos, t[id]);
             htmlOutput += `
             <li class="${t[id].state}">
                 ${t[id].message}
