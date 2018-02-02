@@ -10,30 +10,49 @@ class ToDooComponent {
             <ul>${this.htmlList}</ul>
         `;
         this.listElement = this.element.querySelector('ul');
-        this.bindEvents ();
+        this.bindInput ();
     }
 
-    bindEvents () {
+    bindInput() {
         const addTodoInput = this.element.querySelector('input');
         const that = this;
 
         addTodoInput.addEventListener('keyup', function(event){
             if(event.key === 'Enter') {
-                that.state.add(this.value);
+                that.state.add(new ToDoo(this.value));
                 that.draw();
                 this.value = '';
             }
         })
     }
 
+    bindCheckButtons() {
+        const checkButtons = this.listElement.querySelectorAll('button');
+        const that = this;
+
+        for (const btn of checkButtons) {
+            btn.addEventListener('click', function(event){
+                that.state.todos[this.dataset.id].state = ToDoo.DONE;
+                that.draw();
+            })
+        }
+    }
+
     draw() {
         this.listElement.innerHTML = this.htmlList;
+        this.bindCheckButtons();
     }
 
     get htmlList() {
         let htmlOutput = '';
-        for (const todo of this.state.todos) {
-            htmlOutput += `<li>${todo}</li>`
+        const t = this.state.todos;
+        for (const id in this.state.todos) {
+            console.log(this.state.todos, t[id]);
+            htmlOutput += `
+            <li class="${t[id].state}">
+                ${t[id].message}
+                <button data-id="${id}">✔</button>
+            </li>`
         }
         return htmlOutput;
     }

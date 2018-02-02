@@ -1,0 +1,33 @@
+@charset "UTF-8";
+html {
+    font-size: 20px;
+}
+.todo-app {
+    box-shadow: 0 0 0 1px black;
+}
+
+.todo-app > ul {
+    list-style-type: none;
+    padding: 1em;
+    display: flex;
+}
+
+.todo-app li {
+    text-align: center;
+    flex: 0 1 15ch;
+    padding: 1em;
+    margin: 1em;
+    box-shadow: 0 0 .5em darkgrey;
+}
+
+.todo-app li button {
+    font-size: 1.5em;
+}
+
+.todo-app .done {
+    background-color: lightgreen;
+}
+
+.todo-app .not-done {
+    background-color: lightyellow;
+}
