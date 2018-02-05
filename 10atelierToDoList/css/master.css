@@ -6,6 +6,29 @@ html {
     box-shadow: 0 0 0 1px black;
 }
 
+.todo-app output,
+.todo-app input {
+    font-size: 1em;
+    color: #ddd;
+    background-color: #111;
+    font-family: monospace;
+    padding: .5em;
+    width: 80ch;
+}
+.todo-app output {
+    display: block;
+    height: 10em;
+    overflow-y: scroll;
+}
+
+.todo-app output p.success {
+    color: lightgreen;
+}
+
+.todo-app output p.error {
+    background-color: red;
+}
+
 .todo-app > ul {
     list-style-type: none;
     padding: 1em;

@@ -7,4 +7,10 @@ export class ToDooLeast {
         todo.id = ++this.nextId;
         this.todos[todo.id] = todo;
     }
+
+    *[Symbol.iterator]() {
+        for (const id in this.todos) {
+            yield this.todos[id];
+        }
+    }
 }
