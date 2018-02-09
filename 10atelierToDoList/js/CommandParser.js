@@ -25,6 +25,18 @@ export class CommandParser {
                         that.stdout.innerHTML += `<p class="success">ToDoo added :)</p>`;
                         this.value = '';
                         break;
+                    case 'check':
+                        try {
+                            thatComponent.state.check(toDooMessage);
+                        }
+                        catch (e) {
+                            that.stdout.innerHTML += `<p class="error">${e}</p>`;
+                            break
+                        }
+                        thatComponent.draw();
+                        that.stdout.innerHTML += `<p class="success">Well done guy</p>`;
+                        this.value = '';
+                        break;
                     case 'ls':
                         for (const todo of thatComponent.state) {
                             that.stdout.innerHTML += `<p class="info">[${todo.id}] ${todo.message}</p>`;

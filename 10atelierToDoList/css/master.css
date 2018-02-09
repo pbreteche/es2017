@@ -21,6 +21,10 @@ html {
     overflow-y: scroll;
 }
 
+.todo-app output p {
+    margin: 0;
+}
+
 .todo-app output p.success {
     color: lightgreen;
 }

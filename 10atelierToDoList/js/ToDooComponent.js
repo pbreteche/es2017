@@ -1,4 +1,4 @@
-import { ToDoo, DONE, NOT_DONE } from './ToDoo.js';
+import { DONE, NOT_DONE } from './ToDoo.js';
 import { ByStateIterable } from './ByStateIterable.js';
 import { CommandParser } from './CommandParser.js';
 
@@ -9,6 +9,7 @@ export class ToDooComponent {
     }
 
     init() {
+        this.state.load();
         this.element.innerHTML = `
             <div class="command-prompt">
                 <output>Tapez "help", mais pas trop fort s'il vous plait</output>
@@ -17,6 +18,7 @@ export class ToDooComponent {
             <ul>${this.htmlList}</ul>
         `;
         this.listElement = this.element.querySelector('ul');
+        this.bindCheckButtons();
         this.bindInput ();
     }
 
